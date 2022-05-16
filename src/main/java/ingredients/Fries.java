@@ -1,3 +1,5 @@
+package ingredients;
+
 import java.util.Scanner;
 
 public class Fries implements IIngredient {

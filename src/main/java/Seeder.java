@@ -1,4 +1,9 @@
-import java.lang.reflect.Array;
+import ingredients.Fries;
+import ingredients.Soda;
+import meals.Meal;
+import meals.Special;
+import meals.Hamburger;
+
 import java.util.ArrayList;
 
 public class Seeder {
@@ -6,8 +11,8 @@ public class Seeder {
     private final ArrayList<Meal> meals = new ArrayList<> ();
 
     private Meal getMealWithSodaAndFries (Meal meal) {
-        meal.addIngredient (new Soda ());
-        meal.addIngredient (new Fries ());
+        meal.addIngredient (new Soda());
+        meal.addIngredient (new Fries());
         return meal;
     }
 

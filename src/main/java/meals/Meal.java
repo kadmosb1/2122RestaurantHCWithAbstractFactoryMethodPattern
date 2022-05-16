@@ -1,5 +1,8 @@
+package meals;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import ingredients.IIngredient;
 
 public abstract class Meal {
 

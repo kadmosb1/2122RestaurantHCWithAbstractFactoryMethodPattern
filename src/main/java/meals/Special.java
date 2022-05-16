@@ -1,10 +1,11 @@
-import java.util.ArrayList;
+package meals;
+
 import java.util.Scanner;
 
 public class Special extends Meal {
 
     public Special() {
-        super("Broodje hamburger speciaal");
+        super ("Broodje hamburger speciaal");
     }
 
     @Override

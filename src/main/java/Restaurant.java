@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import meals.Meal;
+
 import java.util.Scanner;
 
 public class Restaurant {
