@@ -1,7 +1,5 @@
+import abstractfactories.IngredientFactory;
 import meals.Meal;
-import ingredients.IIngredient;
-import ingredients.Soda;
-import ingredients.Fries;
 import abstractfactories.MealFactory;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -36,11 +34,11 @@ class MealTest {
     public void testGetName () {
         Meal meal = MealFactory.HAMBURGER_FACTORY.createMeal ();
         assertEquals ("Broodje hamburger", meal.getName ());
-        meal.addIngredient (new Soda ());
+        meal.addIngredient (IngredientFactory.SODA_FACTORY.createIngredient ());
         assertEquals ("Broodje hamburger (met drinken)", meal.getName ());
-        meal.addIngredient (new Fries ());
+        meal.addIngredient (IngredientFactory.FRIES_FACTORY.createIngredient ());
         assertEquals ("Broodje hamburger (met drinken en frites)", meal.getName ());
-        meal.addIngredient (new Fries ());
+        meal.addIngredient (IngredientFactory.FRIES_FACTORY.createIngredient ());
         assertEquals ("Broodje hamburger (met drinken, frites en frites)", meal.getName ());
     }
 

@@ -1,3 +1,4 @@
+import abstractfactories.IngredientFactory;
 import abstractfactories.MealFactory;
 import ingredients.Fries;
 import ingredients.Soda;
@@ -12,8 +13,8 @@ public class Seeder {
     private final ArrayList<Meal> meals = new ArrayList<> ();
 
     private Meal getMealWithSodaAndFries (Meal meal) {
-        meal.addIngredient (new Soda());
-        meal.addIngredient (new Fries());
+        meal.addIngredient (IngredientFactory.SODA_FACTORY.createIngredient ());
+        meal.addIngredient (IngredientFactory.FRIES_FACTORY.createIngredient ());
         return meal;
     }
 
