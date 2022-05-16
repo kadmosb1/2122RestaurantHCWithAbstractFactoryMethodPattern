@@ -9,8 +9,7 @@ public class Soda implements IIngredient {
         return "drinken";
     }
 
-    public String getOrderLine () {
-        Scanner scanner = new Scanner (System.in);
+    public String getOrderLine (Scanner scanner) {
         System.out.print ("Welk drinken wil de klant bij zijn maaltijd? ");
         return "= Drank: " + scanner.nextLine () + "\r\n";
     }

@@ -1,4 +1,9 @@
 import meals.Meal;
+import ingredients.IIngredient;
+import ingredients.Soda;
+import ingredients.Fries;
+import abstractfactories.MealFactory;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -29,16 +34,14 @@ class MealTest {
      * op de juiste plekken in de naam.
      */
     public void testGetName () {
-        /*
         Meal meal = MealFactory.HAMBURGER_FACTORY.createMeal ();
-        assertEquals ("Broodje Hamburger", meal.getName ());
-        meal.addIngredient (IngredientFactory.SODA_FACTORY);
-        assertEquals ("Broodje Hamburger (met drinken)", meal.getName ());
-        meal.addIngredient (IngredientFactory.FRIES_FACTORY);
-        assertEquals ("Broodje Hamburger (met drinken en frites)", meal.getName ());
-        meal.addIngredient (IngredientFactory.FRIES_FACTORY);
-        assertEquals ("Broodje Hamburger (met drinken, frites en frites)", meal.getName ());
-        */
+        assertEquals ("Broodje hamburger", meal.getName ());
+        meal.addIngredient (new Soda ());
+        assertEquals ("Broodje hamburger (met drinken)", meal.getName ());
+        meal.addIngredient (new Fries ());
+        assertEquals ("Broodje hamburger (met drinken en frites)", meal.getName ());
+        meal.addIngredient (new Fries ());
+        assertEquals ("Broodje hamburger (met drinken, frites en frites)", meal.getName ());
     }
 
     @Test
@@ -46,7 +49,7 @@ class MealTest {
         Meal meal = seeder.getMeal (0);
         String expectedOrder = System.lineSeparator () +
                 "===============================================" + System.lineSeparator() +
-                "= Bestelling: Broodje Hamburger" + System.lineSeparator() +
+                "= Bestelling: Broodje hamburger" + System.lineSeparator() +
                 "===============================================";
         String actualOrder = meal.getOrder();
         assertEquals (expectedOrder, actualOrder);
@@ -66,7 +69,7 @@ class MealTest {
 
         String expectedOrder = System.lineSeparator () +
                 "===============================================" + System.lineSeparator () +
-                "= Bestelling: Broodje Hamburger (met drinken en frites)" + System.lineSeparator () +
+                "= Bestelling: Broodje hamburger (met drinken en frites)" + System.lineSeparator () +
                 "= Drank: Cola" + System.lineSeparator () +
                 "= Extra fritessaus: ja" + System.lineSeparator () +
                 "===============================================";

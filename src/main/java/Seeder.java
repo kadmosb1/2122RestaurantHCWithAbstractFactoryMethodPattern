@@ -1,3 +1,4 @@
+import abstractfactories.MealFactory;
 import ingredients.Fries;
 import ingredients.Soda;
 import meals.Meal;
@@ -17,10 +18,10 @@ public class Seeder {
     }
 
     public Seeder () {
-        meals.add (new Hamburger());
-        meals.add (getMealWithSodaAndFries (new Hamburger ()));
-        meals.add (new Special());
-        meals.add (getMealWithSodaAndFries (new Special ()));
+        meals.add (MealFactory.HAMBURGER_FACTORY.createMeal());
+        meals.add (getMealWithSodaAndFries (MealFactory.HAMBURGER_FACTORY.createMeal ()));
+        meals.add (MealFactory.SPECIAL_FACTORY.createMeal ());
+        meals.add (getMealWithSodaAndFries (MealFactory.SPECIAL_FACTORY.createMeal ()));
     }
 
     public ArrayList<Meal> getMeals () {

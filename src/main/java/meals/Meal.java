@@ -60,7 +60,7 @@ public abstract class Meal {
         order.append (getOrderLine ());
 
         for (IIngredient ingredient : ingredients) {
-            order.append (ingredient.getOrderLine ());
+            order.append (ingredient.getOrderLine (scanner));
         }
 
         order.append ("===============================================");
