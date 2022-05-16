@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Special extends Meal {
 
-    public Special(ArrayList<Extra> extras) {
-        super("Broodje hamburger speciaal", extras);
+    public Special() {
+        super("Broodje hamburger speciaal");
     }
 
     @Override

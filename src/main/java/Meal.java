@@ -3,43 +3,47 @@ import java.util.Scanner;
 
 public abstract class Meal {
 
-    private String name;
-    private ArrayList<Extra> extras = new ArrayList<> ();
+    private final String name;
+    private final ArrayList<IIngredient> ingredients;
 
-    public Meal (String name, ArrayList<Extra> extras) {
-
+    public Meal (String name) {
+        ingredients = new ArrayList<> ();
         this.name = name;
+    }
 
-        StringBuilder string = new StringBuilder ();
+    public String getIngredientsString () {
 
-        if (extras != null) {
-            this.extras = extras;
-        }
+        StringBuilder sb = new StringBuilder ();
 
-        if ((extras != null) && (extras.size () > 0)) {
+        for (int teller = 0; teller < ingredients.size (); teller++) {
 
-            for (int teller = 0; teller < extras.size (); teller++) {
-
-                if (teller == 0) {
-                    string.append (" (met ");
-                }
-                else if (teller == (extras.size () - 1)) {
-                    string.append (" en ");
-                }
-                else {
-                    string.append (", ");
-                }
-
-                string.append (extras.get (teller).getName ());
+            if (teller == 0) {
+                sb.append (" (met ");
+            }
+            else if (teller == (ingredients.size () - 1)) {
+                sb.append (" en ");
+            }
+            else {
+                sb.append (", ");
             }
 
-            string.append (")");
-            this.name += string;
+            sb.append (ingredients.get (teller).getName ());
+
         }
+
+        if (ingredients.size () > 0) {
+            sb.append (")");
+        }
+
+        return sb.toString ();
     }
 
     public String getName () {
-        return name;
+        return name + getIngredientsString ();
+    }
+
+    public void addIngredient (IIngredient ingredient) {
+        ingredients.add (ingredient);
     }
 
     public abstract String getOrderLine ();
@@ -49,11 +53,11 @@ public abstract class Meal {
         Scanner scanner = new Scanner (System.in);
         StringBuilder order = new StringBuilder ();
         order.append ("\r\n===============================================\r\n");
-        order.append ("= Bestelling: ").append (name).append ("\r\n");
+        order.append ("= Bestelling: ").append (getName ()).append ("\r\n");
         order.append (getOrderLine ());
 
-        for (Extra extra : extras) {
-            order.append (extra.getOrderLine ());
+        for (IIngredient ingredient : ingredients) {
+            order.append (ingredient.getOrderLine ());
         }
 
         order.append ("===============================================");

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Soda extends Extra {
+public class Soda implements IIngredient {
 
     @Override
     public String getName() {

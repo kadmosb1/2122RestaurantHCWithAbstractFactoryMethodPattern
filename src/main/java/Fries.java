@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Fries extends Extra {
+public class Fries implements IIngredient {
 
     @Override
     public String getName() {
@@ -12,5 +12,4 @@ public class Fries extends Extra {
         System.out.print ("Wil de klant fritessaus bij de frites (j/n) ");
         return "= Extra fritessaus: " + (scanner.nextLine ().equals ("j") ? "ja" : "nee") + "\r\n";
     }
-
 }
